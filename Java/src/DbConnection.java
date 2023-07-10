@@ -1,12 +1,8 @@
 import java.sql.*;
+import static utils.Constant.*;
 
 public class DbConnection {
     public void connection(){
-
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "test";
-        String userName = "root";
-        String password = "@Dmin2089!";
 
         try{
 
@@ -20,7 +16,7 @@ public class DbConnection {
 
                 Statement statement = connection.createStatement();
 
-                ExecuteCrudOperations(dbName, connection, statement);
+                ExecuteCrudOperations(connection, statement);
 
             }else {
 
@@ -32,11 +28,11 @@ public class DbConnection {
         }
     }
 
-    private static void ExecuteCrudOperations(String dbName, Connection connection, Statement statement) throws SQLException {
+    private static void ExecuteCrudOperations(Connection connection, Statement statement) throws SQLException {
 
         CrudOperations crudOperations = new CrudOperations();
 
-        crudOperations.CreateDatabase(dbName, statement);
+        crudOperations.CreateDatabase(utils.Constant.dbName, statement);
 
         crudOperations.CreateTableAndInsertData(connection, statement);
 
