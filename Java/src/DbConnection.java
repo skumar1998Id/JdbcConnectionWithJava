@@ -32,7 +32,7 @@ public class DbConnection {
 
         CrudOperations crudOperations = new CrudOperations();
 
-        crudOperations.CreateDatabase(utils.Constant.dbName, statement);
+        crudOperations.CreateDatabase(dbName, statement);
 
         crudOperations.CreateTableAndInsertData(connection, statement);
 
